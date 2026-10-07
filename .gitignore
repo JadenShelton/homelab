@@ -1,0 +1,7 @@
+# Secrets: never commit (Cloudflare tunnel token lives here)
+.env
+*.env
+
+# Jellyfin runtime data: database/config is backed up separately, cache is regenerable
+jellyfin/config/
+jellyfin/cache/

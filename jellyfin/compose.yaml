@@ -1,0 +1,37 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    user: 1000:1000
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8096:8096"
+      - "192.168.0.21:8096:8096"
+    volumes:
+      - ./config:/config
+      - ./cache:/cache
+      - type: bind
+        source: /mnt/media/movies
+        target: /data/movies
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: /mnt/media/shows
+        target: /data/shows
+        read_only: true
+        bind:
+          create_host_path: false
+    devices:
+      - /dev/dri:/dev/dri
+    group_add:
+      - "990"
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    depends_on:
+      - jellyfin
