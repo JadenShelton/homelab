@@ -19,11 +19,11 @@ Built into an Antec Fusion Remote micro-ATX HTPC case, mostly from spare and sec
 |---|---|---|
 | Case | Antec Fusion Remote (black) | Low-profile HTPC, front LCD and IR receiver, 2 × 3.5" internal bays, 5.25" bay |
 | CPU | Intel Core i7-7700 (4C/8T, up to 4.2 GHz) | Intel Quick Sync for hardware video transcoding; stock cooler with refreshed thermal paste |
-| Motherboard | Gigabyte GA-H270M-D3H (micro-ATX) | 6 × SATA, 1 × M.2 NVMe slot, 4 × DDR4 slots |
+| Motherboard | Gigabyte H270M-DS3H (micro-ATX) | 6 × SATA, 1 × M.2 NVMe slot, 4 × DDR4 slots |
 | Memory | 16 GB DDR4 (2 × 8 GB) | |
 | Boot / apps | Crucial P310 1 TB NVMe (PCIe Gen4) | OS, containers, Jellyfin database and transcode cache |
-| Media storage | 8 TB HDD (NTFS) | Movies and TV shows |
-| Optical | Blu-ray drive | 5.25" bay |
+| Media storage | Seagate IronWolf 8 TB HDD (ST8000VN004, NAS-class) | NTFS; movies and TV shows |
+| Optical | LG BD-RE WH08LS20 Blu-ray drive | 5.25" bay |
 | Power | Corsair RM750 (750 W, 80 Plus Gold, fully modular) | Far more headroom than needed, so room to add drives |
 | Cooling | 2 × 120 mm be quiet! PWM fans with magnetic dust filters | Tuned for quiet HTPC use |
 
@@ -37,7 +37,7 @@ Built into an Antec Fusion Remote micro-ATX HTPC case, mostly from spare and sec
              Cloudflare (TLS, DNS, Tunnel)
                           |   outbound-only connection
   +-----------------------|----------------------------+
-  | TARS (Ubuntu 24.04)   |                            |
+  | TARS (Ubuntu 26.04)   |                            |
   |   +-------------+     v      +-------------------+ |
   |   | cloudflared |----------->|     Jellyfin      | |
   |   +-------------+  Docker    | (Quick Sync via   | |
@@ -59,7 +59,7 @@ Built into an Antec Fusion Remote micro-ATX HTPC case, mostly from spare and sec
 
 | Layer | Choice |
 |---|---|
-| OS | Ubuntu 24.04 LTS (desktop install, hardened) |
+| OS | Ubuntu 26.04 LTS (desktop install, hardened) |
 | Containers | Docker and Docker Compose |
 | Media server | Jellyfin, with Intel Quick Sync hardware transcoding |
 | Public access | Cloudflare Tunnel (`cloudflared`) |
@@ -116,7 +116,7 @@ Security was a design goal from the start. The layers:
 - [ ] Back up Jellyfin's `config/` (database) on a schedule, using a consistent copy method
 - [ ] Decide on a second copy of the media (offsite or a second drive)
 - [ ] Pin container image versions instead of `:latest`
-- [ ] Add intrusion prevention for SSH (fail2ban or similar)
+- [ ] Add intrusion prevention for SSH (fail2ban is not installed yet)
 - [ ] Add monitoring and alerting (disk health, container health, uptime)
 - [ ] Add more self-hosted services
 
