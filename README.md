@@ -54,6 +54,7 @@ Built into an Antec Fusion Remote micro-ATX HTPC case, mostly from spare and sec
 - **Family access:** a Cloudflare Tunnel (`cloudflared` container) makes an outbound-only connection to Cloudflare, which serves Jellyfin on a public hostname over HTTPS. Nothing is port-forwarded on the router and my home IP is never exposed.
 - **Home TV:** streams directly over the LAN on port 8096, bypassing the tunnel.
 - **Administration:** SSH and remote desktop run over Tailscale, a WireGuard-based mesh VPN.
+- **Tailnet access to Jellyfin:** `tailscale serve` also publishes Jellyfin over HTTPS to my own tailnet devices only (not Tailscale Funnel, so not public).
 
 ## Software stack
 
