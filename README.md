@@ -13,7 +13,7 @@ This repo holds the infrastructure-as-code (Docker Compose) and the documentatio
 
 ## Hardware
 
-Built into an Antec Fusion Remote micro-ATX HTPC case from spare and second-hand parts.
+Built into an Antec Fusion Remote micro-ATX HTPC case, mostly from spare and second-hand parts.
 
 | Component | Part | Notes |
 |---|---|---|
@@ -27,7 +27,7 @@ Built into an Antec Fusion Remote micro-ATX HTPC case from spare and second-hand
 | Power | Corsair RM750 (750 W, 80 Plus Gold, fully modular) | Far more headroom than needed, so room to add drives |
 | Cooling | 2 × 120 mm be quiet! PWM fans with magnetic dust filters | Tuned for quiet HTPC use |
 
-**Build notes:** sourced and assembled the machine myself, reseated the CPU cooler with fresh thermal paste, mounted the NVMe drive, and used new SATA cables for the storage drive.
+**Build notes:** assembled by me, with fresh thermal paste on the CPU cooler and new SATA cables for the storage drive.
 
 ## Architecture
 
