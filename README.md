@@ -18,7 +18,7 @@ Built into an Antec Fusion Remote micro-ATX HTPC case, mostly from spare and sec
 | Component | Part | Notes |
 |---|---|---|
 | Case | Antec Fusion Remote (black) | Low-profile HTPC, front LCD and IR receiver, 2 × 3.5" internal bays, 5.25" bay |
-| CPU | Intel Core i7-7700 (4C/8T, up to 4.2 GHz) | Intel Quick Sync for hardware video transcoding; stock cooler with refreshed thermal paste |
+| CPU | Intel Core i7-7700 (4C/8T, up to 4.2 GHz) | Intel Quick Sync for hardware video transcoding; stock cooler installed |
 | Motherboard | Gigabyte H270M-DS3H (micro-ATX) | 6 × SATA, 1 × M.2 NVMe slot, 4 × DDR4 slots |
 | Memory | 16 GB DDR4 (2 × 8 GB) | |
 | Boot / apps | Crucial P310 1 TB NVMe (PCIe Gen4) | OS, containers, Jellyfin database and transcode cache |
