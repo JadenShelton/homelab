@@ -31,25 +31,7 @@ Built into an Antec Fusion Remote micro-ATX HTPC case, mostly from spare and sec
 
 ## Architecture
 
-```
-                       Internet
-                          |
-             Cloudflare (TLS, DNS, Tunnel)
-                          |   outbound-only connection
-  +-----------------------|----------------------------+
-  | TARS (Ubuntu 26.04)   |                            |
-  |   +-------------+     v      +-------------------+ |
-  |   | cloudflared |----------->|     Jellyfin      | |
-  |   +-------------+  Docker    | (Quick Sync via   | |
-  |                    network   |  /dev/dri)        | |
-  |                              +---------+---------+ |
-  |                                        | read-only |
-  |                              /mnt/media (8 TB HDD)| |
-  +--------------------------------------------------+-+
-        ^                    ^
-        | LAN :8096          | Tailscale (SSH, remote desktop)
-   Home TV              My laptop
-```
+![TARS architecture: family devices reach Jellyfin through Cloudflare and an outbound-only cloudflared tunnel; the home TV streams over the LAN; the admin laptop uses Tailscale for SSH, RDP and tailnet-only Jellyfin](docs/architecture.svg)
 
 - **Family access:** a Cloudflare Tunnel (`cloudflared` container) makes an outbound-only connection to Cloudflare, which serves Jellyfin on a public hostname over HTTPS. Nothing is port-forwarded on the router and my home IP is never exposed.
 - **Home TV:** streams directly over the LAN on port 8096, bypassing the tunnel.
@@ -127,6 +109,9 @@ Security was a design goal from the start. The layers:
 .
 ├── README.md
 ├── .gitignore               # excludes .env, Jellyfin config/ and cache/
+├── docs/
+│   ├── architecture.html    # architecture diagram (source)
+│   └── architecture.svg     # exported diagram shown above
 └── jellyfin/
     └── compose.yaml         # Jellyfin + cloudflared
 ```
